@@ -1,0 +1,13 @@
+# Never commit game files or keys
+*.BIN
+*.bin
+*.elf
+*.self
+*.sprx
+*.iso
+*.pkg
+*.xex
+*.xbe
+key_vault.*
+__pycache__/
+*.pyc

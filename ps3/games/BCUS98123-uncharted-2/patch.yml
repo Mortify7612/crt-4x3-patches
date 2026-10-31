@@ -1,0 +1,85 @@
+Version: 1.2
+
+PPU-9fe364d48b610e4b0a1c41d526bec9b1b2039c07:
+  "4:3 CRT - Part 1: Full-height 3D (v4)":
+    Games:
+      "Uncharted 2: Among Thieves":
+        BCUS98123: [ 01.00 ]
+    Author: "captainslow48"
+    Notes: "3D image fills the 4:3 screen instead of being letterboxed; UI keeps the game's own 4:3 layout. Use with RPCS3 aspect 4:3 + 480p."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00069b38, 0x60000000 ] # nop 
+  "4:3 CRT - Part 2: 4:3 camera (v3)":
+    Games:
+      "Uncharted 2: Among Thieves":
+        BCUS98123: [ 01.00 ]
+    Author: "captainslow48"
+    Notes: "Gameplay camera rendered as 4:3 (keeps vertical FOV, crops sides). Use with Part 1."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000238b8, 0x839e8480 ] # lwz r28, -0x7b80(r30)
+      - [ be32, 0x000238bc, 0x48000070 ] # b 0x2392c
+      - [ be32, 0x000238c0, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x000238c4, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x000238c8, 0xc1a1ffe0 ] # lfs f13, -0x20(r1)
+      - [ be32, 0x000238cc, 0xec000372 ] # fmuls f0, f0, f13
+      - [ be32, 0x000238d0, 0xec00f824 ] # fdivs f0, f0, f31
+      - [ be32, 0x000238d4, 0xd1bd0190 ] # stfs f13, 0x190(r29)
+      - [ be32, 0x000238d8, 0x4e800020 ] # blr 
+      - [ be32, 0x000238dc, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x000238e0, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x000238e4, 0xc001ffe0 ] # lfs f0, -0x20(r1)
+      - [ be32, 0x000238e8, 0xec630032 ] # fmuls f3, f3, f0
+      - [ be32, 0x000238ec, 0xec632024 ] # fdivs f3, f3, f4
+      - [ be32, 0x000238f0, 0xfc800090 ] # fmr f4, f0
+      - [ be32, 0x000238f4, 0x480f83fc ] # b 0x11bcf0
+      - [ be32, 0x00023904, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x00023908, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x0002390c, 0xc001ffe0 ] # lfs f0, -0x20(r1)
+      - [ be32, 0x00023910, 0x4e800020 ] # blr 
+      - [ be32, 0x0011ad98, 0x4bf08b6d ] # bl 0x23904
+      - [ be32, 0x0011bf38, 0x4bf07989 ] # bl 0x238c0
+      - [ be32, 0x00522a8c, 0x4bb00e51 ] # bl 0x238dc
+
+PPU-c319a223b0d8d1fb319b87db2308e61d35e9cd33:
+  "4:3 CRT - Part 1: Full-height 3D (v4)":
+    Games:
+      "Uncharted 2: Among Thieves":
+        BCUS98123: [ 01.02 ]
+    Author: "captainslow48"
+    Notes: "3D fills the 4:3 screen; UI keeps the game's own 4:3 layout. RPCS3 aspect 4:3 + 480p."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00069b88, 0x60000000 ] # nop 
+  "4:3 CRT - Part 2: 4:3 camera (v3)":
+    Games:
+      "Uncharted 2: Among Thieves":
+        BCUS98123: [ 01.02 ]
+    Author: "captainslow48"
+    Notes: "4:3 gameplay camera. Use with Part 1."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00023870, 0x839e8480 ] # lwz r28, -0x7b80(r30)
+      - [ be32, 0x00023874, 0x48000070 ] # b 0x238e4
+      - [ be32, 0x00023878, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x0002387c, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x00023880, 0xc1a1ffe0 ] # lfs f13, -0x20(r1)
+      - [ be32, 0x00023884, 0xec000372 ] # fmuls f0, f0, f13
+      - [ be32, 0x00023888, 0xec00f824 ] # fdivs f0, f0, f31
+      - [ be32, 0x0002388c, 0xd1bd0190 ] # stfs f13, 0x190(r29)
+      - [ be32, 0x00023890, 0x4e800020 ] # blr 
+      - [ be32, 0x00023894, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x00023898, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x0002389c, 0xc001ffe0 ] # lfs f0, -0x20(r1)
+      - [ be32, 0x000238a0, 0xec630032 ] # fmuls f3, f3, f0
+      - [ be32, 0x000238a4, 0xec632024 ] # fdivs f3, f3, f4
+      - [ be32, 0x000238a8, 0xfc800090 ] # fmr f4, f0
+      - [ be32, 0x000238ac, 0x480f823c ] # b 0x11bae8
+      - [ be32, 0x000238bc, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x000238c0, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x000238c4, 0xc001ffe0 ] # lfs f0, -0x20(r1)
+      - [ be32, 0x000238c8, 0x4e800020 ] # blr 
+      - [ be32, 0x0011ab90, 0x4bf08d2d ] # bl 0x238bc
+      - [ be32, 0x0011bd30, 0x4bf07b49 ] # bl 0x23878
+      - [ be32, 0x0052a750, 0x4baf9145 ] # bl 0x23894
