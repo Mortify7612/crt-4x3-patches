@@ -1,0 +1,21 @@
+Version: 1.2
+
+PPU-19724fde16a5b111b7b4d2a065f5dccaf8e01962:
+  "4:3 CRT - Part 1: No letterbox":
+    Games:
+      "God of War 3 (God of War III)":
+        BCUS98111: [ 01.03 ]
+    Author: "captainslow48"
+    Notes: "Fills the 4:3 screen instead of a 16:9 band. RPCS3: aspect 4:3 + 720x480."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001cc7e8, 0x90ff0088 ] # stw r7, 0x88(r31)
+  "4:3 CRT - Part 2: 4:3 camera":
+    Games:
+      "God of War 3 (God of War III)":
+        BCUS98111: [ 01.03 ]
+    Author: "captainslow48"
+    Notes: "Renders the 3D at 4:3 so shapes are correct. Use with Part 1."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001cc7e0, 0xc0028eb0 ] # lfs f0, -0x7150(r2)
