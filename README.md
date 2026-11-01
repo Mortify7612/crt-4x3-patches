@@ -13,8 +13,8 @@ changed instructions) and tools that apply them to a copy of the game you dump y
 
 | Platform | Game | ID | Versions | Emulator | Real hardware |
 |---|---|---|---|---|---|
-| PS3 | [Uncharted 2: Among Thieves](ps3/games/BCUS98123-uncharted-2/) | BCUS98123 | 1.00, 1.02 | RPCS3 ✔ | CFW PS3 ✔ |
-| PS3 | [Uncharted 3: Drake's Deception](ps3/games/BCUS98233-uncharted-3/) | BCUS98233 | 1.00 | RPCS3 ✔ | CFW PS3 ✔ |
+| PS3 | [Uncharted 2: Among Thieves](ps3/games/BCUS98123-uncharted-2/) | BCUS98123 | 1.00, 1.02, 1.09 | RPCS3 ✔ | CFW PS3 ✔ |
+| PS3 | [Uncharted 3: Drake's Deception](ps3/games/BCUS98233-uncharted-3/) | BCUS98233 | 1.00, 1.19 | RPCS3 ✔ | CFW PS3 ✔ |
 | PS3 | [God of War III](ps3/games/BCUS98111-god-of-war-3/) | BCUS98111 | 1.03 | RPCS3 ✔ | CFW PS3 ✔ |
 
 ## Platforms

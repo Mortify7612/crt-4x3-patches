@@ -5,10 +5,11 @@
 | Version | Where it comes from | PPU hash |
 |---|---|---|
 | 1.00 | disc / ISO | `PPU-49c96996b6f3c0b32422375978c41e0c7ed95183` |
+| 1.19 | game update (latest) | `PPU-02a88c3c6cd415b0bb81f1606bc743835881a4ba` |
 
-Only 1.00 is supported. With no update installed, the console runs the EBOOT inside the disc or
-ISO: build the patched EBOOT, then put it back into a copy of your ISO with
-`tools/iso_put_eboot.py` (see the [PS3 README](../../README.md)).
+If update 1.19 is installed, the console and RPCS3 run its EBOOT, not the disc's. With no update
+installed, the console runs the EBOOT inside the disc or ISO: build the patched EBOOT, then put it
+back into a copy of your ISO with `tools/iso_put_eboot.py` (see the [PS3 README](../../README.md)).
 
 ## Parts
 

@@ -6,8 +6,9 @@
 |---|---|---|
 | 1.00 | disc / ISO | `PPU-9fe364d48b610e4b0a1c41d526bec9b1b2039c07` |
 | 1.02 | game update | `PPU-c319a223b0d8d1fb319b87db2308e61d35e9cd33` |
+| 1.09 | game update (latest) | `PPU-a3a5789c12711291dfe16a7d5d81c906d2b4c0c2` |
 
-If update 1.02 is installed, the console and RPCS3 run its EBOOT, not the disc's.
+If an update is installed, the console and RPCS3 run its EBOOT, not the disc's.
 
 ## Parts
 

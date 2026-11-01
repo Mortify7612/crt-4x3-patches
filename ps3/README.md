@@ -16,7 +16,9 @@ Needs a PS3 on CFW that skips the EBOOT signature check (tested on Evilnat 4.93 
 
 1. **Find the EBOOT the console runs.** If a game update is installed, it's
    `/dev_hdd0/game/<ID>/USRDIR/EBOOT.BIN`, not the one on the disc or ISO. Check the game's
-   README for supported versions; other versions are refused.
+   README for supported versions; other versions are refused. Install updates through the
+   console's own update prompt: an update folder copied over FTP can leave the PS3 asking to
+   update again. Patch the EBOOT after the official update is in place.
 2. **Copy that EBOOT to your PC** (webMAN FTP works) and keep a backup.
 3. **Build the patched EBOOT:**
    ```
