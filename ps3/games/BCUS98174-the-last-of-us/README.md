@@ -15,13 +15,18 @@ Same engine as [Uncharted 3](../BCUS98233-uncharted-3/); the patch is ported fro
 
 - **Part 1: Full-height 3D.** On a 4:3 TV the game squeezes the 3D picture into a 16:9 band during
   post-processing. This removes only that squeeze; menus and HUD keep the game's own 4:3 layout.
-- **Part 2: 4:3 camera.** Every camera set up for 16:9 is switched to 4:3 where the game builds its
-  projection, keeping the 16:9 view's height and trimming its sides, so proportions are correct.
+- **Part 2: 4:3 camera (PS3, full width).** Every camera set up for 16:9 is switched to 4:3 where
+  the game builds its projection: the same width of view as 16:9, plus more above and below, with
+  correct proportions. Use this one on a PS3.
+- **Part 2 (RPCS3): 4:3 camera, sides trimmed.** The same, but keeping the 16:9 view's height and
+  trimming its sides. The full-width camera freezes RPCS3 at the menu (a real PS3 is fine with it),
+  and so does any view taller than 16:9.
 
-Use both together.
+Use Part 1 with one of the two Part 2s, never both. To build the PS3 EBOOT:
 
-Uncharted 3's camera keeps the 16:9 width and adds view above and below instead. In The Last of Us
-that froze the game at the menu in RPCS3, so this version trims the sides.
+```
+python3 tools/patch_eboot.py EBOOT.BIN games/BCUS98174-the-last-of-us/patch.yml EBOOT_4x3.BIN --skip RPCS3
+```
 
 ## RPCS3 settings
 

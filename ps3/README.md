@@ -25,6 +25,8 @@ Needs a PS3 on CFW that skips the EBOOT signature check (tested on Evilnat 4.93 
    pip install cryptography
    python3 tools/patch_eboot.py EBOOT.BIN games/<game>/patch.yml EBOOT_4x3.BIN
    ```
+   If the game's README lists alternative parts (one for PS3, one for RPCS3), leave the other
+   one out with `--skip`, as that README shows.
    The first run downloads RPCS3's `key_vault.cpp`/`key_vault.h` from its GitHub. Pass
    `--keys path/to/rpcs3/rpcs3/Crypto` to use a local RPCS3 checkout instead.
    The tool decrypts the EBOOT, applies the patch, re-encrypts it with the original keys, then

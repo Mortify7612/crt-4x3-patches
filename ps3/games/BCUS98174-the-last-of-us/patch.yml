@@ -7,16 +7,42 @@ PPU-120fb71f7352d62521c639b0e99f960018c10a56:
         BCUS98174: [ 01.11 ]
     Author: "captainslow48"
     Notes: "Removes the 16:9 letterbox from the 3D picture (post-processing viewport); UI keeps the game's 4:3 layout. RPCS3: aspect 4:3 + 720x480."
-    Patch Version: 2.0
+    Patch Version: 3.0
     Patch:
       - [ be32, 0x00a8eb98, 0x60000000 ] # nop 
-  "4:3 CRT - Part 2: 4:3 camera":
+  "4:3 CRT - Part 2: 4:3 camera (PS3, full width)":
     Games:
       "The Last of Us":
         BCUS98174: [ 01.11 ]
     Author: "captainslow48"
-    Notes: "4:3 camera with correct proportions: the 16:9 view with its sides trimmed. Use with Part 1."
-    Patch Version: 2.0
+    Notes: "PS3: 4:3 camera with correct proportions, same width of view as 16:9 plus more above and below. Freezes RPCS3 at the menu: use Part 2 (RPCS3) there. Use with Part 1."
+    Patch Version: 3.0
+    Patch:
+      - [ be32, 0x00b01f74, 0x7c7a1b78 ] # mr r26, r3
+      - [ be32, 0x00b01f78, 0x480001c0 ] # b 0xb02138
+      - [ be32, 0x00b01f80, 0xc1a30190 ] # lfs f13, 0x190(r3)
+      - [ be32, 0x00b01f84, 0x3d803f10 ] # lis r12, 0x3f10
+      - [ be32, 0x00b01f88, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x00b01f8c, 0xc181ffe0 ] # lfs f12, -0x20(r1)
+      - [ be32, 0x00b01f90, 0xed6d6028 ] # fsubs f11, f13, f12
+      - [ be32, 0x00b01f94, 0xfd605a10 ] # fabs f11, f11
+      - [ be32, 0x00b01f98, 0x3d803c24 ] # lis r12, 0x3c24
+      - [ be32, 0x00b01f9c, 0x9181ffe0 ] # stw r12, -0x20(r1)
+      - [ be32, 0x00b01fa0, 0xc181ffe0 ] # lfs f12, -0x20(r1)
+      - [ be32, 0x00b01fa4, 0xff8b6000 ] # fcmpu cr7, f11, f12
+      - [ be32, 0x00b01fa8, 0x409c000c ] # bge cr7, 0xb01fb4
+      - [ be32, 0x00b01fac, 0x3d803f40 ] # lis r12, 0x3f40
+      - [ be32, 0x00b01fb0, 0x91830190 ] # stw r12, 0x190(r3)
+      - [ be32, 0x00b01fb4, 0xf821fb21 ] # stdu r1, -0x4e0(r1)
+      - [ be32, 0x00b01fb8, 0x4bf7258c ] # b 0xa74544
+      - [ be32, 0x00a74540, 0x4808da40 ] # b 0xb01f80
+  "4:3 CRT - Part 2 (RPCS3): 4:3 camera, sides trimmed":
+    Games:
+      "The Last of Us":
+        BCUS98174: [ 01.11 ]
+    Author: "captainslow48"
+    Notes: "RPCS3: 4:3 camera with correct proportions, the 16:9 view with its sides trimmed (the full-width camera freezes RPCS3). Use with Part 1; don't combine with the PS3 Part 2."
+    Patch Version: 3.0
     Patch:
       - [ be32, 0x00b01f74, 0x7c7a1b78 ] # mr r26, r3
       - [ be32, 0x00b01f78, 0x480001c0 ] # b 0xb02138

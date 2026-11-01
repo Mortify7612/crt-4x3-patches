@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Apply an RPCS3 patch file to your own EBOOT.BIN, producing a patched EBOOT.BIN for a CFW PS3.
 
-usage: patch_eboot.py EBOOT.BIN PATCH.yml OUT_EBOOT.BIN [--keys RPCS3_CRYPTO_DIR]
+usage: patch_eboot.py EBOOT.BIN PATCH.yml OUT_EBOOT.BIN [--skip PART ...] [--keys RPCS3_CRYPTO_DIR]
 
 Decrypts the EBOOT, picks the patches in PATCH.yml whose PPU hash matches it, applies every
 be32 write, re-encrypts with the original keys, then decrypts the result again to check it.
+--skip leaves out every part whose name contains PART (case-insensitive); use it when a game
+offers alternative parts. Parts that write the same address are refused unless one is skipped.
 The header signature is left invalid, so the console needs a CFW that skips that check.
 """
 import argparse, os, re, struct, sys, tempfile
@@ -43,6 +45,8 @@ def main():
     ap.add_argument('eboot')
     ap.add_argument('patch_yml')
     ap.add_argument('out')
+    ap.add_argument('--skip', action='append', default=[], metavar='PART',
+                    help='leave out parts whose name contains PART (repeatable)')
     ap.add_argument('--keys', help="RPCS3's rpcs3/Crypto directory (default: download from RPCS3 GitHub)")
     a = ap.parse_args()
     keys = keys_dir(a.keys)
@@ -53,6 +57,17 @@ def main():
         parts = patch_words(open(a.patch_yml).read(), ppu_hash)
         if not parts:
             sys.exit(f'{a.patch_yml} has no patches for {ppu_hash}: wrong game or version')
+        for name, _ in parts:
+            if any(s.lower() in name.lower() for s in a.skip):
+                print(f'skipping "{name}"')
+        parts = [(n, w) for n, w in parts if not any(s.lower() in n.lower() for s in a.skip)]
+        owner = {}
+        for name, words in parts:
+            for addr, _ in words:
+                if addr in owner and owner[addr] != name:
+                    sys.exit(f'"{owner[addr]}" and "{name}" both change {addr:#x}: they are alternatives, '
+                             f'leave one out with --skip')
+                owner[addr] = name
 
         elf = bytearray(open(elf_path, 'rb').read())
         for name, words in parts:
