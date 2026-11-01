@@ -17,6 +17,7 @@ changed instructions) and tools that apply them to a copy of the game you dump y
 | PS3 | [Uncharted 3: Drake's Deception](ps3/games/BCUS98233-uncharted-3/) | BCUS98233 | 1.00, 1.19 | RPCS3 ✔ | CFW PS3 ✔ |
 | PS3 | [God of War III](ps3/games/BCUS98111-god-of-war-3/) | BCUS98111 | 1.03 | RPCS3 ✔ | CFW PS3 ✔ |
 | PS3 | [Dante's Inferno](ps3/games/BLUS30405-dantes-inferno/) | BLUS30405 | 1.04 | RPCS3 ✔ | CFW PS3 ✔ |
+| PS3 | [Asura's Wrath](ps3/games/BLUS30721-asuras-wrath/) | BLUS30721 | 1.02 | RPCS3 ✔ | CFW PS3 ✔ |
 
 ## Platforms
 

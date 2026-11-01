@@ -1,0 +1,21 @@
+Version: 1.2
+
+PPU-83096111daff850cc92b637aec1780c4079e1c58:
+  "4:3 CRT - Part 1: Full-screen output":
+    Games:
+      "Asura's Wrath":
+        BLUS30721: [ 01.02 ]
+    Author: "captainslow48"
+    Notes: "Fills the 4:3 screen instead of letterboxing (cellResc full-screen scaling, as the game does on 16:9 TVs). Use with Part 2. RPCS3: aspect 4:3 + 720x480."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0087d9f8, 0x93a100c8 ] # stw r29,0xc8(r1): cellResc FULLSCREEN
+  "4:3 CRT - Part 2: 4:3 render size":
+    Games:
+      "Asura's Wrath":
+        BLUS30721: [ 01.02 ]
+    Author: "captainslow48"
+    Notes: "Renders at 960x720 instead of 1280x720 on SD TVs, so the game uses a 4:3 view with correct proportions."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0087e1d0, 0x38c003c0 ] # li r6,0x3c0: 960 wide (960x720)
