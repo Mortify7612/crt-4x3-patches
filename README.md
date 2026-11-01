@@ -20,6 +20,18 @@ changed instructions) and tools that apply them to a copy of the game you dump y
 | PS3 | [Asura's Wrath](ps3/games/BLUS30721-asuras-wrath/) | BLUS30721 | 1.02 | RPCS3 ✔ | CFW PS3 ✔ |
 | PS3 | [The Last of Us](ps3/games/BCUS98174-the-last-of-us/) | BCUS98174 | 1.11 | RPCS3 ✔ | CFW PS3 ✔ |
 
+### Already 4:3, no patch needed
+
+These output true full-screen 4:3 on their own when the console (or RPCS3) is set to a 4:3 TV.
+Checked on a CRT; cutscenes may keep the game's own cinematic bars.
+
+| Platform | Game | ID |
+|---|---|---|
+| PS3 | inFamous | BCUS98119 |
+| PS3 | inFamous 2 | BCUS98125 |
+| PS3 | MotorStorm | BCUS98137 |
+| PS3 | Ratchet & Clank Future: A Crack in Time | BCUS98124 |
+
 ## Platforms
 
 - **[PS3](ps3/)**: RPCS3 patches, plus `patch_eboot.py` to build a patched `EBOOT.BIN` for a CFW PS3.
