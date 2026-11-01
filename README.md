@@ -19,6 +19,7 @@ changed instructions) and tools that apply them to a copy of the game you dump y
 | PS3 | [Dante's Inferno](ps3/games/BLUS30405-dantes-inferno/) | BLUS30405 | 1.04 | RPCS3 ✔ | CFW PS3 ✔ |
 | PS3 | [Asura's Wrath](ps3/games/BLUS30721-asuras-wrath/) | BLUS30721 | 1.02 | RPCS3 ✔ | CFW PS3 ✔ |
 | PS3 | [The Last of Us](ps3/games/BCUS98174-the-last-of-us/) | BCUS98174 | 1.11 | RPCS3 ✔ | CFW PS3 ✔ |
+| PS3 | [Killzone 2](ps3/games/BCUS98116-killzone-2/) | BCUS98116 | 1.29 | RPCS3 ✔ | CFW PS3 ✔ |
 
 ### Already 4:3, no patch needed
 

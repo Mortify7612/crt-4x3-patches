@@ -1,0 +1,25 @@
+Version: 1.2
+
+PPU-3a4e272eff128f7fa40bf722961a0c6de81bfc5a:
+  "4:3 CRT - Part 1: Full-screen picture":
+    Games:
+      "Killzone 2":
+        BCUS98116: [ 01.29 ]
+    Author: "captainslow48"
+    Notes: "Fills the 4:3 screen instead of letterboxing (uses the game's 16:9-TV output path). Use with Part 2. RPCS3: aspect 4:3 + 720x480."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0039b9ec, 0x419e0358 ] # beq cr7, 0x39bd44 (16:9-TV path)
+  "4:3 CRT - Part 2: 4:3 aspect":
+    Games:
+      "Killzone 2":
+        BCUS98116: [ 01.29 ]
+    Author: "captainslow48"
+    Notes: "Renders the 3D at 4:3 so shapes are correct with Part 1."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x002772e0, 0x3faaaaab ] # 4/3 (was 16/9)
+      - [ be32, 0x002bb884, 0x3faaaaab ] # 4/3 (was 16/9)
+      - [ be32, 0x002c6c14, 0x3faaaaab ] # 4/3 (was 16/9)
+      - [ be32, 0x002f6780, 0x3faaaaab ] # 4/3 (was 16/9)
+      - [ be32, 0x00f09dec, 0x3faaaaab ] # 4/3 (was 16/9)
