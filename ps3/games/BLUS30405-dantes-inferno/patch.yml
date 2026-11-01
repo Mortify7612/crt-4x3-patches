@@ -1,0 +1,23 @@
+Version: 1.2
+
+PPU-539a6d42763b06228b136fa70f42070b34d30529:
+  "4:3 CRT - Part 1: Full-screen picture":
+    Games:
+      "Dante's Inferno":
+        BLUS30405: [ 01.04 ]
+    Author: "captainslow48"
+    Notes: "Fills the 4:3 screen instead of letterboxing (uses the game's 16:9-TV output path). Use with Part 2. RPCS3: aspect 4:3 + 720x480."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x006e1880, 0x48000498 ] # b 0x6e1d18
+  "4:3 CRT - Part 2: 4:3 aspect":
+    Games:
+      "Dante's Inferno":
+        BLUS30405: [ 01.04 ]
+    Author: "captainslow48"
+    Notes: "Renders the 3D at 4:3 so shapes are correct with Part 1. Aspect constants found by boma (community Aspect Ratio patch)."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x011bfa38, 0x3faaaaab ] # 4/3 (was 16/9)
+      - [ be32, 0x011c3928, 0x3faaaaab ] # 4/3 (was 16/9)
+      - [ be32, 0x011b0ae0, 0x3faaaaab ] # 4/3 (was 16/9)
